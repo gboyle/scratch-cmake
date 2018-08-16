@@ -13,7 +13,20 @@ else(MSVC)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror -std=c++14")
 endif(MSVC)
 
-
+find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
+if (NOT CMAKE_CXX_CPPCHECK)
+	# not impressed by find_program/if behavior at all
+	unset(CMAKE_CXX_CPPCHECK CACHE)
+else()
+    list(
+        APPEND CMAKE_CXX_CPPCHECK 
+            "--enable=warning"
+            "--inconclusive"
+            "--force" 
+            "--inline-suppr"
+            "--suppressions-list=${CMAKE_SOURCE_DIR}/CppCheckSuppressions.txt"
+    )
+endif()
 
 add_subdirectory(project-lib)
 add_subdirectory(project-test)
