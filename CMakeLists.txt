@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.11)
 project(project VERSION 0.0.1)
 
 if (MSVC)
-    # Microsoft prepoluates settings making it painful to change
+    # Microsoft pre-populates settings making it painful to change
     string (REGEX REPLACE "/W[0-4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 endif()
 
