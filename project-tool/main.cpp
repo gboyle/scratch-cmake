@@ -6,4 +6,5 @@ int main()
 {
 
     std::cout << lib_test() << '\n';
+	std::cin.get();
 }

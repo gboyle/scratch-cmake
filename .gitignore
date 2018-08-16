@@ -36,4 +36,9 @@ build/
 Testing/
 
 # Visual Studio Code
-.vscode
+.vscode/
+
+# Visual Studio
+.vs/
+CMakeSettings.json
+
